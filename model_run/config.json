@@ -1,0 +1,17 @@
+{
+    "data_setting": "50",
+    "batch_size": 32,
+    "max_len": 4096,
+    "label_emb_model_name": "emilyalsentzer/Bio_ClinicalBERT",
+    "ehr_emb_model_name": "yikuan8/Clinical-Longformer",
+    "label_attr_file": "label_attributes.txt",
+    "embedding_size": 768,
+    "mid_size": 256,
+    "num_classes": 50,
+    "label_graph": "label_graph.txt",
+    "time_step": 3,
+    "learning_rate": 0.001,
+    "num_epoch": 8,
+    "log": "info",
+    "random_seed": 42
+}
