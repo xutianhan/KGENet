@@ -6,12 +6,12 @@ from sklearn.preprocessing import MultiLabelBinarizer
 from model_run.icd_dataset import ICD_Dataset
 
 
-DATA_DIR = '/root/autodl-tmp/KGENet/mimic3'
-CLASS_ORDER_PATH = "/root/autodl-tmp/KGENet/icd_knowledge"
+DATA_DIR = '../train-data'
+CLASS_ORDER_PATH = "../knowledge-data"
 
 
 def load_dataset(data_setting, batch_size, splited_data):
-    data = pd.read_csv(f'{DATA_DIR}/{splited_data}_{data_setting}.csv', dtype={'LENGTH': int})
+    data = pd.read_csv(f'{DATA_DIR}/{splited_data}_{data_setting}_entities.csv', dtype={'LENGTH': int})
     data['LABELS'] = data['LABELS'].apply(lambda x: str(x).split(';'))
     code_counts = list(data['LABELS'].str.len())
     avg_code_counts = sum(code_counts) / len(code_counts)

@@ -1,0 +1,372 @@
+Head_Entity,Head_Entity_Desc,Tail_Entity,Tail_Entity_Desc,Relation
+410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",584.9,"Acute renal failure, unspecified",complication
+96.04,Insertion of endotracheal tube,584.9,"Acute renal failure, unspecified",complication
+311,"Depressive disorder, not elsewhere classified",584.9,"Acute renal failure, unspecified",complication
+99.04,Transfusion of packed cells,584.9,"Acute renal failure, unspecified",complication
+33.24,Closed [endoscopic] biopsy of bronchus,584.9,"Acute renal failure, unspecified",complication
+427.31,Atrial fibrillation,584.9,"Acute renal failure, unspecified",complication
+287.5,"Thrombocytopenia, unspecified",584.9,"Acute renal failure, unspecified",complication
+244.9,Unspecified hypothyroidism,584.9,"Acute renal failure, unspecified",complication
+412,Old myocardial infarction,584.9,"Acute renal failure, unspecified",complication
+V58.61,Encounter for long-term (current) use of anticoagulants,584.9,"Acute renal failure, unspecified",complication
+272.4,Other and unspecified hyperlipidemia,584.9,"Acute renal failure, unspecified",risk factor
+285.1,Acute posthemorrhagic anemia,584.9,"Acute renal failure, unspecified",complication
+285.9,"Anemia, unspecified",584.9,"Acute renal failure, unspecified",complication
+276.2,Acidosis,45.13,Other endoscopy of small intestine,complication
+96.6,Enteral infusion of concentrated nutritional substances,45.13,Other endoscopy of small intestine,complication
+99.04,Transfusion of packed cells,45.13,Other endoscopy of small intestine,complication
+99.15,Parenteral infusion of concentrated nutritional substances,45.13,Other endoscopy of small intestine,complication
+287.5,"Thrombocytopenia, unspecified",45.13,Other endoscopy of small intestine,complication
+38.93,"Venous catheterization, not elsewhere classified",45.13,Other endoscopy of small intestine,complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,45.13,Other endoscopy of small intestine,complication
+33.24,Closed [endoscopic] biopsy of bronchus,45.13,Other endoscopy of small intestine,complication
+38.91,Arterial catheterization,45.13,Other endoscopy of small intestine,complication
+427.31,Atrial fibrillation,45.13,Other endoscopy of small intestine,complication
+518.81,Acute respiratory failure,45.13,Other endoscopy of small intestine,complication
+496,"Chronic airway obstruction, not elsewhere classified",45.13,Other endoscopy of small intestine,complication
+V45.81,Postsurgical aortocoronary bypass status,45.13,Other endoscopy of small intestine,complication
+285.1,Acute posthemorrhagic anemia,45.13,Other endoscopy of small intestine,complication
+995.92,Severe sepsis,45.13,Other endoscopy of small intestine,complication
+276.1,Hyposmolality and/or hyponatremia,45.13,Other endoscopy of small intestine,complication
+39.95,Hemodialysis,45.13,Other endoscopy of small intestine,complication
+V58.61,Encounter for long-term (current) use of anticoagulants,45.13,Other endoscopy of small intestine,complication
+96.6,Enteral infusion of concentrated nutritional substances,287.5,"Thrombocytopenia, unspecified",complication
+38.93,"Venous catheterization, not elsewhere classified",287.5,"Thrombocytopenia, unspecified",complication
+38.91,Arterial catheterization,287.5,"Thrombocytopenia, unspecified",complication
+518.81,Acute respiratory failure,287.5,"Thrombocytopenia, unspecified",complication
+496,"Chronic airway obstruction, not elsewhere classified",287.5,"Thrombocytopenia, unspecified",complication
+99.04,Transfusion of packed cells,287.5,"Thrombocytopenia, unspecified",complication
+427.31,Atrial fibrillation,287.5,"Thrombocytopenia, unspecified",complication
+96.04,Insertion of endotracheal tube,287.5,"Thrombocytopenia, unspecified",complication
+285.1,Acute posthemorrhagic anemia,287.5,"Thrombocytopenia, unspecified",complication
+486,"Pneumonia, organism unspecified",287.5,"Thrombocytopenia, unspecified",complication
+276.1,Hyposmolality and/or hyponatremia,287.5,"Thrombocytopenia, unspecified",complication
+995.92,Severe sepsis,287.5,"Thrombocytopenia, unspecified",complication
+99.15,Parenteral infusion of concentrated nutritional substances,287.5,"Thrombocytopenia, unspecified",complication
+285.9,"Anemia, unspecified",287.5,"Thrombocytopenia, unspecified",complication
+585.9,"Chronic kidney disease, unspecified",287.5,"Thrombocytopenia, unspecified",complication
+276.2,Acidosis,287.5,"Thrombocytopenia, unspecified",complication
+410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",287.5,"Thrombocytopenia, unspecified",complication
+244.9,Unspecified hypothyroidism,287.5,"Thrombocytopenia, unspecified",complication
+39.95,Hemodialysis,287.5,"Thrombocytopenia, unspecified",complication
+511.9,Unspecified pleural effusion,287.5,"Thrombocytopenia, unspecified",complication
+305.1,Tobacco use disorder,287.5,"Thrombocytopenia, unspecified",complication
+33.24,Closed [endoscopic] biopsy of bronchus,287.5,"Thrombocytopenia, unspecified",complication
+272.4,Other and unspecified hyperlipidemia,287.5,"Thrombocytopenia, unspecified",risk factor
+410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",272.4,Other and unspecified hyperlipidemia,complication
+496,"Chronic airway obstruction, not elsewhere classified",272.4,Other and unspecified hyperlipidemia,complication
+401.9,Unspecified essential hypertension,272.4,Other and unspecified hyperlipidemia,complication
+V45.81,Postsurgical aortocoronary bypass status,272.4,Other and unspecified hyperlipidemia,complication
+414.01,Coronary atherosclerosis of native coronary artery,272.4,Other and unspecified hyperlipidemia,complication
+36.15,Single internal mammary-coronary artery bypass,272.4,Other and unspecified hyperlipidemia,complication
+39.61,Extracorporeal circulation auxiliary to open heart surgery,272.4,Other and unspecified hyperlipidemia,complication
+88.56,Coronary arteriography using two catheters,272.4,Other and unspecified hyperlipidemia,complication
+37.22,Left heart cardiac catheterization,272.4,Other and unspecified hyperlipidemia,complication
+427.31,Atrial fibrillation,272.4,Other and unspecified hyperlipidemia,complication
+410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",272.4,Other and unspecified hyperlipidemia,complication
+530.81,Esophageal reflux,272.4,Other and unspecified hyperlipidemia,complication
+244.9,Unspecified hypothyroidism,272.4,Other and unspecified hyperlipidemia,complication
+V15.82,History of tobacco use,272.4,Other and unspecified hyperlipidemia,complication
+88.72,Diagnostic ultrasound of heart,272.4,Other and unspecified hyperlipidemia,complication
+585.9,"Chronic kidney disease, unspecified",272.4,Other and unspecified hyperlipidemia,complication
+272.4,Other and unspecified hyperlipidemia,412,Old myocardial infarction,complication
+272.4,Other and unspecified hyperlipidemia,311,"Depressive disorder, not elsewhere classified",complication
+272.4,Other and unspecified hyperlipidemia,305.1,Tobacco use disorder,complication
+272.4,Other and unspecified hyperlipidemia,V58.61,Encounter for long-term (current) use of anticoagulants,risk factor
+401.9,Unspecified essential hypertension,V58.61,Encounter for long-term (current) use of anticoagulants,risk factor
+401.9,Unspecified essential hypertension,244.9,Unspecified hypothyroidism,risk factor
+401.9,Unspecified essential hypertension,414.01,Coronary atherosclerosis of native coronary artery,complication
+401.9,Unspecified essential hypertension,36.15,Single internal mammary-coronary artery bypass,complication
+401.9,Unspecified essential hypertension,88.56,Coronary arteriography using two catheters,complication
+401.9,Unspecified essential hypertension,39.61,Extracorporeal circulation auxiliary to open heart surgery,complication
+401.9,Unspecified essential hypertension,37.22,Left heart cardiac catheterization,complication
+401.9,Unspecified essential hypertension,530.81,Esophageal reflux,complication
+401.9,Unspecified essential hypertension,305.1,Tobacco use disorder,complication
+401.9,Unspecified essential hypertension,496,"Chronic airway obstruction, not elsewhere classified",complication
+401.9,Unspecified essential hypertension,V15.82,History of tobacco use,complication
+401.9,Unspecified essential hypertension,412,Old myocardial infarction,complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,276.2,Acidosis,complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,96.04,Insertion of endotracheal tube,complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,96.6,Enteral infusion of concentrated nutritional substances,complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,995.92,Severe sepsis,complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,38.93,"Venous catheterization, not elsewhere classified",complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,38.91,Arterial catheterization,complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,518.81,Acute respiratory failure,complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,305.1,Tobacco use disorder,complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,99.15,Parenteral infusion of concentrated nutritional substances,complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,285.9,"Anemia, unspecified",complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,486,"Pneumonia, organism unspecified",complication
+96.71,Continuous mechanical ventilation for less than 96 consecutive hours,33.24,Closed [endoscopic] biopsy of bronchus,complication
+530.81,Esophageal reflux,585.9,"Chronic kidney disease, unspecified",complication
+530.81,Esophageal reflux,V45.81,Postsurgical aortocoronary bypass status,complication
+530.81,Esophageal reflux,414.01,Coronary atherosclerosis of native coronary artery,complication
+530.81,Esophageal reflux,511.9,Unspecified pleural effusion,complication
+530.81,Esophageal reflux,305.1,Tobacco use disorder,complication
+530.81,Esophageal reflux,496,"Chronic airway obstruction, not elsewhere classified",complication
+530.81,Esophageal reflux,36.15,Single internal mammary-coronary artery bypass,complication
+530.81,Esophageal reflux,244.9,Unspecified hypothyroidism,complication
+530.81,Esophageal reflux,39.61,Extracorporeal circulation auxiliary to open heart surgery,complication
+530.81,Esophageal reflux,285.9,"Anemia, unspecified",complication
+530.81,Esophageal reflux,37.22,Left heart cardiac catheterization,complication
+530.81,Esophageal reflux,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+530.81,Esophageal reflux,V15.82,History of tobacco use,complication
+530.81,Esophageal reflux,427.31,Atrial fibrillation,complication
+530.81,Esophageal reflux,276.1,Hyposmolality and/or hyponatremia,complication
+530.81,Esophageal reflux,412,Old myocardial infarction,complication
+530.81,Esophageal reflux,311,"Depressive disorder, not elsewhere classified",complication
+530.81,Esophageal reflux,V58.61,Encounter for long-term (current) use of anticoagulants,complication
+276.2,Acidosis,96.04,Insertion of endotracheal tube,complication
+276.2,Acidosis,96.6,Enteral infusion of concentrated nutritional substances,complication
+276.2,Acidosis,995.92,Severe sepsis,complication
+276.2,Acidosis,38.93,"Venous catheterization, not elsewhere classified",complication
+276.2,Acidosis,96.72,Continuous mechanical ventilation for 96 consecutive hours or more,complication
+276.2,Acidosis,38.91,Arterial catheterization,complication
+276.2,Acidosis,486,"Pneumonia, organism unspecified",complication
+276.2,Acidosis,518.81,Acute respiratory failure,complication
+276.2,Acidosis,276.1,Hyposmolality and/or hyponatremia,complication
+276.2,Acidosis,99.04,Transfusion of packed cells,complication
+276.2,Acidosis,99.15,Parenteral infusion of concentrated nutritional substances,complication
+276.2,Acidosis,496,"Chronic airway obstruction, not elsewhere classified",complication
+276.2,Acidosis,285.9,"Anemia, unspecified",complication
+276.2,Acidosis,285.1,Acute posthemorrhagic anemia,complication
+276.2,Acidosis,33.24,Closed [endoscopic] biopsy of bronchus,complication
+276.2,Acidosis,244.9,Unspecified hypothyroidism,complication
+276.2,Acidosis,39.95,Hemodialysis,complication
+276.2,Acidosis,305.1,Tobacco use disorder,complication
+276.2,Acidosis,585.9,"Chronic kidney disease, unspecified",complication
+276.2,Acidosis,511.9,Unspecified pleural effusion,complication
+276.2,Acidosis,311,"Depressive disorder, not elsewhere classified",complication
+V58.61,Encounter for long-term (current) use of anticoagulants,427.31,Atrial fibrillation,complication
+V58.61,Encounter for long-term (current) use of anticoagulants,244.9,Unspecified hypothyroidism,complication
+V58.61,Encounter for long-term (current) use of anticoagulants,414.01,Coronary atherosclerosis of native coronary artery,complication
+V58.61,Encounter for long-term (current) use of anticoagulants,285.1,Acute posthemorrhagic anemia,complication
+V58.61,Encounter for long-term (current) use of anticoagulants,496,"Chronic airway obstruction, not elsewhere classified",complication
+V58.61,Encounter for long-term (current) use of anticoagulants,995.92,Severe sepsis,complication
+V58.61,Encounter for long-term (current) use of anticoagulants,486,"Pneumonia, organism unspecified",complication
+V58.61,Encounter for long-term (current) use of anticoagulants,V15.82,History of tobacco use,complication
+V58.61,Encounter for long-term (current) use of anticoagulants,412,Old myocardial infarction,complication
+V58.61,Encounter for long-term (current) use of anticoagulants,39.95,Hemodialysis,complication
+V58.61,Encounter for long-term (current) use of anticoagulants,88.72,Diagnostic ultrasound of heart,complication
+V58.61,Encounter for long-term (current) use of anticoagulants,V45.81,Postsurgical aortocoronary bypass status,cause
+V58.61,Encounter for long-term (current) use of anticoagulants,585.9,"Chronic kidney disease, unspecified",complication
+V58.61,Encounter for long-term (current) use of anticoagulants,311,"Depressive disorder, not elsewhere classified",risk factor
+V58.61,Encounter for long-term (current) use of anticoagulants,511.9,Unspecified pleural effusion,complication
+96.04,Insertion of endotracheal tube,38.93,"Venous catheterization, not elsewhere classified",complication
+96.04,Insertion of endotracheal tube,96.72,Continuous mechanical ventilation for 96 consecutive hours or more,cause
+96.04,Insertion of endotracheal tube,38.91,Arterial catheterization,cause
+96.04,Insertion of endotracheal tube,276.1,Hyposmolality and/or hyponatremia,complication
+96.04,Insertion of endotracheal tube,995.92,Severe sepsis,complication
+96.04,Insertion of endotracheal tube,38.93,"Venous catheterization, not elsewhere classified",cause
+96.04,Insertion of endotracheal tube,518.81,Acute respiratory failure,complication
+96.04,Insertion of endotracheal tube,96.6,Enteral infusion of concentrated nutritional substances,cause
+96.04,Insertion of endotracheal tube,99.04,Transfusion of packed cells,cause
+96.04,Insertion of endotracheal tube,99.15,Parenteral infusion of concentrated nutritional substances,cause
+96.04,Insertion of endotracheal tube,486,"Pneumonia, organism unspecified",complication
+96.04,Insertion of endotracheal tube,39.95,Hemodialysis,cause
+96.04,Insertion of endotracheal tube,33.24,Closed [endoscopic] biopsy of bronchus,complication
+96.04,Insertion of endotracheal tube,511.9,Unspecified pleural effusion,complication
+427.31,Atrial fibrillation,244.9,Unspecified hypothyroidism,cause
+427.31,Atrial fibrillation,414.01,Coronary atherosclerosis of native coronary artery,complication
+427.31,Atrial fibrillation,88.56,Coronary arteriography using two catheters,complication
+427.31,Atrial fibrillation,37.23,Combined right and left heart cardiac catheterization,complication
+427.31,Atrial fibrillation,36.15,Single internal mammary-coronary artery bypass,complication
+427.31,Atrial fibrillation,38.93,"Venous catheterization, not elsewhere classified",complication
+427.31,Atrial fibrillation,39.61,Extracorporeal circulation auxiliary to open heart surgery,complication
+427.31,Atrial fibrillation,37.22,Left heart cardiac catheterization,complication
+427.31,Atrial fibrillation,518.81,Acute respiratory failure,complication
+427.31,Atrial fibrillation,496,"Chronic airway obstruction, not elsewhere classified",complication
+427.31,Atrial fibrillation,88.72,Diagnostic ultrasound of heart,complication
+427.31,Atrial fibrillation,96.72,Continuous mechanical ventilation for 96 consecutive hours or more,complication
+427.31,Atrial fibrillation,285.9,"Anemia, unspecified",complication
+427.31,Atrial fibrillation,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+427.31,Atrial fibrillation,412,Old myocardial infarction,complication
+427.31,Atrial fibrillation,V15.82,History of tobacco use,complication
+427.31,Atrial fibrillation,585.9,"Chronic kidney disease, unspecified",complication
+244.9,Unspecified hypothyroidism,414.01,Coronary atherosclerosis of native coronary artery,cause
+244.9,Unspecified hypothyroidism,511.9,Unspecified pleural effusion,complication
+244.9,Unspecified hypothyroidism,285.9,"Anemia, unspecified",complication
+244.9,Unspecified hypothyroidism,276.1,Hyposmolality and/or hyponatremia,complication
+244.9,Unspecified hypothyroidism,V15.82,History of tobacco use,complication
+244.9,Unspecified hypothyroidism,V45.81,Postsurgical aortocoronary bypass status,complication
+244.9,Unspecified hypothyroidism,38.93,"Venous catheterization, not elsewhere classified",complication
+244.9,Unspecified hypothyroidism,496,"Chronic airway obstruction, not elsewhere classified",complication
+244.9,Unspecified hypothyroidism,585.9,"Chronic kidney disease, unspecified",complication
+244.9,Unspecified hypothyroidism,518.81,Acute respiratory failure,complication
+244.9,Unspecified hypothyroidism,995.92,Severe sepsis,complication
+244.9,Unspecified hypothyroidism,486,"Pneumonia, organism unspecified",complication
+244.9,Unspecified hypothyroidism,412,Old myocardial infarction,complication
+244.9,Unspecified hypothyroidism,39.95,Hemodialysis,complication
+414.01,Coronary atherosclerosis of native coronary artery,36.15,Single internal mammary-coronary artery bypass,cause
+414.01,Coronary atherosclerosis of native coronary artery,88.56,Coronary arteriography using two catheters,complication
+414.01,Coronary atherosclerosis of native coronary artery,37.23,Combined right and left heart cardiac catheterization,complication
+414.01,Coronary atherosclerosis of native coronary artery,39.61,Extracorporeal circulation auxiliary to open heart surgery,complication
+414.01,Coronary atherosclerosis of native coronary artery,285.9,"Anemia, unspecified",complication
+414.01,Coronary atherosclerosis of native coronary artery,37.22,Left heart cardiac catheterization,complication
+414.01,Coronary atherosclerosis of native coronary artery,37.23,Combined right and left heart cardiac catheterization,complication
+414.01,Coronary atherosclerosis of native coronary artery,585.9,"Chronic kidney disease, unspecified",complication
+414.01,Coronary atherosclerosis of native coronary artery,305.1,Tobacco use disorder,complication
+414.01,Coronary atherosclerosis of native coronary artery,V15.82,History of tobacco use,complication
+414.01,Coronary atherosclerosis of native coronary artery,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+414.01,Coronary atherosclerosis of native coronary artery,496,"Chronic airway obstruction, not elsewhere classified",complication
+414.01,Coronary atherosclerosis of native coronary artery,88.72,Diagnostic ultrasound of heart,complication
+414.01,Coronary atherosclerosis of native coronary artery,412,Old myocardial infarction,complication
+38.93,"Venous catheterization, not elsewhere classified",96.72,Continuous mechanical ventilation for 96 consecutive hours or more,complication
+38.93,"Venous catheterization, not elsewhere classified",38.91,Arterial catheterization,complication
+38.93,"Venous catheterization, not elsewhere classified",285.9,"Anemia, unspecified",complication
+38.93,"Venous catheterization, not elsewhere classified",276.1,Hyposmolality and/or hyponatremia,complication
+38.93,"Venous catheterization, not elsewhere classified",96.6,Enteral infusion of concentrated nutritional substances,complication
+38.93,"Venous catheterization, not elsewhere classified",38.93,"Venous catheterization, not elsewhere classified",cause
+38.93,"Venous catheterization, not elsewhere classified",518.81,Acute respiratory failure,complication
+38.93,"Venous catheterization, not elsewhere classified",99.04,Transfusion of packed cells,cause
+38.93,"Venous catheterization, not elsewhere classified",88.72,Diagnostic ultrasound of heart,risk factor
+38.93,"Venous catheterization, not elsewhere classified",995.92,Severe sepsis,complication
+38.93,"Venous catheterization, not elsewhere classified",99.15,Parenteral infusion of concentrated nutritional substances,cause
+38.93,"Venous catheterization, not elsewhere classified",285.1,Acute posthemorrhagic anemia,complication
+38.93,"Venous catheterization, not elsewhere classified",39.95,Hemodialysis,cause
+38.93,"Venous catheterization, not elsewhere classified",496,"Chronic airway obstruction, not elsewhere classified",complication
+38.93,"Venous catheterization, not elsewhere classified",33.24,Closed [endoscopic] biopsy of bronchus,complication
+38.93,"Venous catheterization, not elsewhere classified",511.9,Unspecified pleural effusion,complication
+38.93,"Venous catheterization, not elsewhere classified",585.9,"Chronic kidney disease, unspecified",complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,38.91,Arterial catheterization,cause
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,285.9,"Anemia, unspecified",complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,276.1,Hyposmolality and/or hyponatremia,complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,96.6,Enteral infusion of concentrated nutritional substances,cause
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,995.92,Severe sepsis,complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,486,"Pneumonia, organism unspecified",complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,38.93,"Venous catheterization, not elsewhere classified",cause
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,518.81,Acute respiratory failure,complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,88.72,Diagnostic ultrasound of heart,complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,99.15,Parenteral infusion of concentrated nutritional substances,cause
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,511.9,Unspecified pleural effusion,complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,39.95,Hemodialysis,complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,99.04,Transfusion of packed cells,complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,496,"Chronic airway obstruction, not elsewhere classified",complication
+96.72,Continuous mechanical ventilation for 96 consecutive hours or more,33.24,Closed [endoscopic] biopsy of bronchus,complication
+285.9,"Anemia, unspecified",276.1,Hyposmolality and/or hyponatremia,cause
+285.9,"Anemia, unspecified",36.15,Single internal mammary-coronary artery bypass,complication
+285.9,"Anemia, unspecified",88.56,Coronary arteriography using two catheters,complication
+285.9,"Anemia, unspecified",39.61,Extracorporeal circulation auxiliary to open heart surgery,complication
+285.9,"Anemia, unspecified",496,"Chronic airway obstruction, not elsewhere classified",complication
+285.9,"Anemia, unspecified",99.04,Transfusion of packed cells,complication
+285.9,"Anemia, unspecified",511.9,Unspecified pleural effusion,complication
+285.9,"Anemia, unspecified",585.9,"Chronic kidney disease, unspecified",complication
+285.9,"Anemia, unspecified",33.24,Closed [endoscopic] biopsy of bronchus,complication
+285.9,"Anemia, unspecified",518.81,Acute respiratory failure,complication
+285.9,"Anemia, unspecified",410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+285.9,"Anemia, unspecified",995.92,Severe sepsis,complication
+285.9,"Anemia, unspecified",486,"Pneumonia, organism unspecified",complication
+285.9,"Anemia, unspecified",37.23,Combined right and left heart cardiac catheterization,complication
+285.9,"Anemia, unspecified",V15.82,History of tobacco use,complication
+285.9,"Anemia, unspecified",311,"Depressive disorder, not elsewhere classified",complication
+276.1,Hyposmolality and/or hyponatremia,995.92,Severe sepsis,complication
+276.1,Hyposmolality and/or hyponatremia,486,"Pneumonia, organism unspecified",complication
+276.1,Hyposmolality and/or hyponatremia,518.81,Acute respiratory failure,complication
+276.1,Hyposmolality and/or hyponatremia,V45.81,Postsurgical aortocoronary bypass status,complication
+276.1,Hyposmolality and/or hyponatremia,496,"Chronic airway obstruction, not elsewhere classified",complication
+276.1,Hyposmolality and/or hyponatremia,305.1,Tobacco use disorder,complication
+276.1,Hyposmolality and/or hyponatremia,33.24,Closed [endoscopic] biopsy of bronchus,complication
+276.1,Hyposmolality and/or hyponatremia,39.95,Hemodialysis,complication
+276.1,Hyposmolality and/or hyponatremia,96.6,Enteral infusion of concentrated nutritional substances,complication
+276.1,Hyposmolality and/or hyponatremia,511.9,Unspecified pleural effusion,complication
+276.1,Hyposmolality and/or hyponatremia,311,"Depressive disorder, not elsewhere classified",complication
+276.1,Hyposmolality and/or hyponatremia,585.9,"Chronic kidney disease, unspecified",complication
+96.6,Enteral infusion of concentrated nutritional substances,995.92,Severe sepsis,complication
+96.6,Enteral infusion of concentrated nutritional substances,99.04,Transfusion of packed cells,complication
+96.6,Enteral infusion of concentrated nutritional substances,99.15,Parenteral infusion of concentrated nutritional substances,cause
+96.6,Enteral infusion of concentrated nutritional substances,486,"Pneumonia, organism unspecified",complication
+96.6,Enteral infusion of concentrated nutritional substances,518.81,Acute respiratory failure,complication
+96.6,Enteral infusion of concentrated nutritional substances,33.24,Closed [endoscopic] biopsy of bronchus,complication
+96.6,Enteral infusion of concentrated nutritional substances,511.9,Unspecified pleural effusion,complication
+96.6,Enteral infusion of concentrated nutritional substances,39.95,Hemodialysis,complication
+96.6,Enteral infusion of concentrated nutritional substances,496,"Chronic airway obstruction, not elsewhere classified",complication
+V15.82,History of tobacco use,36.15,Single internal mammary-coronary artery bypass,cause
+V15.82,History of tobacco use,88.56,Coronary arteriography using two catheters,complication
+V15.82,History of tobacco use,39.61,Extracorporeal circulation auxiliary to open heart surgery,complication
+V15.82,History of tobacco use,37.22,Left heart cardiac catheterization,complication
+V15.82,History of tobacco use,88.72,Diagnostic ultrasound of heart,complication
+V15.82,History of tobacco use,37.23,Combined right and left heart cardiac catheterization,complication
+V15.82,History of tobacco use,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+V15.82,History of tobacco use,412,Old myocardial infarction,complication
+V15.82,History of tobacco use,311,"Depressive disorder, not elsewhere classified",complication
+V15.82,History of tobacco use,496,"Chronic airway obstruction, not elsewhere classified",complication
+V15.82,History of tobacco use,486,"Pneumonia, organism unspecified",complication
+V15.82,History of tobacco use,V45.81,Postsurgical aortocoronary bypass status,complication
+V15.82,History of tobacco use,33.24,Closed [endoscopic] biopsy of bronchus,complication
+995.92,Severe sepsis,486,"Pneumonia, organism unspecified",complication
+995.92,Severe sepsis,518.81,Acute respiratory failure,complication
+995.92,Severe sepsis,99.04,Transfusion of packed cells,complication
+995.92,Severe sepsis,V45.81,Postsurgical aortocoronary bypass status,complication
+995.92,Severe sepsis,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+995.92,Severe sepsis,99.15,Parenteral infusion of concentrated nutritional substances,complication
+995.92,Severe sepsis,585.9,"Chronic kidney disease, unspecified",complication
+995.92,Severe sepsis,511.9,Unspecified pleural effusion,complication
+995.92,Severe sepsis,39.95,Hemodialysis,complication
+995.92,Severe sepsis,496,"Chronic airway obstruction, not elsewhere classified",complication
+995.92,Severe sepsis,33.24,Closed [endoscopic] biopsy of bronchus,complication
+995.92,Severe sepsis,311,"Depressive disorder, not elsewhere classified",complication
+486,"Pneumonia, organism unspecified",518.81,Acute respiratory failure,complication
+486,"Pneumonia, organism unspecified",V45.81,Postsurgical aortocoronary bypass status,complication
+486,"Pneumonia, organism unspecified",511.9,Unspecified pleural effusion,complication
+486,"Pneumonia, organism unspecified",496,"Chronic airway obstruction, not elsewhere classified",complication
+486,"Pneumonia, organism unspecified",33.24,Closed [endoscopic] biopsy of bronchus,complication
+486,"Pneumonia, organism unspecified",410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+36.15,Single internal mammary-coronary artery bypass,88.56,Coronary arteriography using two catheters,complication
+36.15,Single internal mammary-coronary artery bypass,39.61,Extracorporeal circulation auxiliary to open heart surgery,complication
+36.15,Single internal mammary-coronary artery bypass,37.22,Left heart cardiac catheterization,complication
+36.15,Single internal mammary-coronary artery bypass,37.23,Combined right and left heart cardiac catheterization,complication
+36.15,Single internal mammary-coronary artery bypass,88.72,Diagnostic ultrasound of heart,complication
+36.15,Single internal mammary-coronary artery bypass,412,Old myocardial infarction,complication
+36.15,Single internal mammary-coronary artery bypass,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+36.15,Single internal mammary-coronary artery bypass,305.1,Tobacco use disorder,cause
+36.15,Single internal mammary-coronary artery bypass,88.56,Coronary arteriography using two catheters,complication
+36.15,Single internal mammary-coronary artery bypass,39.61,Extracorporeal circulation auxiliary to open heart surgery,complication
+36.15,Single internal mammary-coronary artery bypass,37.22,Left heart cardiac catheterization,complication
+36.15,Single internal mammary-coronary artery bypass,37.23,Combined right and left heart cardiac catheterization,complication
+36.15,Single internal mammary-coronary artery bypass,412,Old myocardial infarction,complication
+36.15,Single internal mammary-coronary artery bypass,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+88.56,Coronary arteriography using two catheters,39.61,Extracorporeal circulation auxiliary to open heart surgery,complication
+88.56,Coronary arteriography using two catheters,37.22,Left heart cardiac catheterization,complication
+88.56,Coronary arteriography using two catheters,37.23,Combined right and left heart cardiac catheterization,complication
+88.56,Coronary arteriography using two catheters,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+88.56,Coronary arteriography using two catheters,412,Old myocardial infarction,complication
+88.56,Coronary arteriography using two catheters,88.72,Diagnostic ultrasound of heart,complication
+88.56,Coronary arteriography using two catheters,496,"Chronic airway obstruction, not elsewhere classified",complication
+39.61,Extracorporeal circulation auxiliary to open heart surgery,37.22,Left heart cardiac catheterization,complication
+39.61,Extracorporeal circulation auxiliary to open heart surgery,88.72,Diagnostic ultrasound of heart,complication
+39.61,Extracorporeal circulation auxiliary to open heart surgery,37.23,Combined right and left heart cardiac catheterization,complication
+39.61,Extracorporeal circulation auxiliary to open heart surgery,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+39.61,Extracorporeal circulation auxiliary to open heart surgery,412,Old myocardial infarction,complication
+39.61,Extracorporeal circulation auxiliary to open heart surgery,99.04,Transfusion of packed cells,complication
+37.22,Left heart cardiac catheterization,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+37.22,Left heart cardiac catheterization,412,Old myocardial infarction,complication
+37.22,Left heart cardiac catheterization,88.72,Diagnostic ultrasound of heart,complication
+37.23,Combined right and left heart cardiac catheterization,412,Old myocardial infarction,complication
+37.23,Combined right and left heart cardiac catheterization,88.72,Diagnostic ultrasound of heart,complication
+37.23,Combined right and left heart cardiac catheterization,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+37.23,Combined right and left heart cardiac catheterization,496,"Chronic airway obstruction, not elsewhere classified",complication
+37.23,Combined right and left heart cardiac catheterization,305.1,Tobacco use disorder,complication
+99.04,Transfusion of packed cells,285.1,Acute posthemorrhagic anemia,complication
+99.04,Transfusion of packed cells,88.72,Diagnostic ultrasound of heart,complication
+99.04,Transfusion of packed cells,V45.81,Postsurgical aortocoronary bypass status,complication
+99.04,Transfusion of packed cells,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+99.04,Transfusion of packed cells,99.15,Parenteral infusion of concentrated nutritional substances,complication
+99.04,Transfusion of packed cells,39.95,Hemodialysis,complication
+99.04,Transfusion of packed cells,33.24,Closed [endoscopic] biopsy of bronchus,complication
+99.04,Transfusion of packed cells,511.9,Unspecified pleural effusion,complication
+99.04,Transfusion of packed cells,496,"Chronic airway obstruction, not elsewhere classified",complication
+99.04,Transfusion of packed cells,585.9,"Chronic kidney disease, unspecified",complication
+285.1,Acute posthemorrhagic anemia,V45.81,Postsurgical aortocoronary bypass status,complication
+285.1,Acute posthemorrhagic anemia,99.15,Parenteral infusion of concentrated nutritional substances,complication
+285.1,Acute posthemorrhagic anemia,585.9,"Chronic kidney disease, unspecified",complication
+285.1,Acute posthemorrhagic anemia,511.9,Unspecified pleural effusion,complication
+88.72,Diagnostic ultrasound of heart,33.24,Closed [endoscopic] biopsy of bronchus,complication
+88.72,Diagnostic ultrasound of heart,511.9,Unspecified pleural effusion,complication
+88.72,Diagnostic ultrasound of heart,39.95,Hemodialysis,complication
+88.72,Diagnostic ultrasound of heart,412,Old myocardial infarction,complication
+88.72,Diagnostic ultrasound of heart,305.1,Tobacco use disorder,complication
+V45.81,Postsurgical aortocoronary bypass status,410.71,"Acute myocardial infarction, subendocardial infarction, initial episode of care",complication
+V45.81,Postsurgical aortocoronary bypass status,585.9,"Chronic kidney disease, unspecified",complication
+V45.81,Postsurgical aortocoronary bypass status,511.9,Unspecified pleural effusion,complication
+V45.81,Postsurgical aortocoronary bypass status,39.95,Hemodialysis,complication

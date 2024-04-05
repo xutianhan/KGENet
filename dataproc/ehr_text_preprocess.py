@@ -3,6 +3,8 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import spacy
 import csv
+import re
+
 
 # 下载停用词列表（如果之前没有下载过的话）
 nltk.download('stopwords')
@@ -15,12 +17,8 @@ custom_stopwords = {'admission', 'date', 'discharge', 'birth', 'sex', 'patient',
                     'day', 'days', 'hour', 'hours','morning', 'afternoon', 'evening', 'night','job', 'units', 'times'}
 stop_words.update(custom_stopwords)
 
-# inpath = '/Users/guyixun/Documents/PHD/healthcare-code/ICD-coding-baseline/mimicdata/mimic3/train_50.csv'
-# outpath = '/Users/guyixun/Documents/PHD/healthcare-code/ICD-coding-baseline/mimicdata/mimic3/train_50_entities.csv'
-
 inpath = './train_50.csv'
 outpath = './train_50_entities.csv'
-
 
 # 加载 en_core_sci_sm 模型
 scism = spacy.load("en_core_sci_sm")
@@ -44,6 +42,8 @@ with open(inpath, 'r', newline='', encoding='utf-8') as infile, \
     for row in reader:
         # 在这里对TEXT字段进行所需的操作
         ehr_text = row[2]
+        # 使用正则表达式替换所有标点符号为空字符串
+        ehr_text = re.sub(r'[^\w\s]', '', ehr_text)
         # 分词
         words = word_tokenize(ehr_text)
 

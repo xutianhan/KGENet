@@ -16,7 +16,7 @@ from torch.autograd import Variable
 class KGENet(nn.Module):
 
     def __init__(self, label_emb_model_name, ehr_emb_model_name, label_attr_file,
-                 embedding_size, mid_size, num_classes, label_graph, time_step):
+                 embedding_size, mid_size, num_classes, label_graph, theta, time_step):
         super(KGENet, self).__init__()
         # Init Label Attribute Embedding
         self.label_encoder = AttributeEncoder(label_emb_model_name)
@@ -36,13 +36,16 @@ class KGENet(nn.Module):
         self.time_step = time_step
         # reload label graph
         self.graph_file = label_graph
-        G = lg.reload_graph(self.graph_file)
-        # Calculate the weighted adjacency matrix
-        adj_matrix = nx.adjacency_matrix(G, weight='weight').toarray()
+
+        # G = lg.reload_graph(self.graph_file)
+        G = lg.reload_directed_graph(self.graph_file)
+        adj_matrix = nx.adjacency_matrix(G, weight=theta).toarray()
+
         # Replace missing values with 0
         adj_matrix[np.isnan(adj_matrix)] = 0
         # convert ndarray to tensor
         self.in_matrix, self.out_matrix = self.load_matrix(adj_matrix)
+
         self.graph_net = GGNN(input_dim=2 * self.ehr_hidden_size,
                               time_step=self.time_step,
                               in_matrix=self.in_matrix,
@@ -85,6 +88,7 @@ class KGENet(nn.Module):
         for code, fc in enumerate(self.fcs):
             outputs[:, code:code + 1] = fc(out_feature[:, code, :])
         return outputs, cross_attention_weights
+
 
     def load_matrix(self, adjacency_matrix):
         in_matrix, out_matrix = adjacency_matrix.astype(np.float32), adjacency_matrix.T.astype(np.float32)

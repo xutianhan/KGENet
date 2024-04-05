@@ -1,92 +1,62 @@
 import networkx as nx
-import pandas as pd
 from graphviz import Digraph
-from math import log2
 import pickle
-import numpy as np
-import torch as th
 import hierarchical_tree as tree
+import pandas as pd
+import csv
 
-def create_graph(data_file, out_weight_file, threshold):
-    # Load the MIMIC-III dataset
-    df = pd.read_csv(data_file)
-    # Create a dictionary that maps each ICD9 code to a set of labels that occur in the same row
-    icd9_freq = {}
-    icd9_occur = {}
-    for _, row in df.iterrows():
-        line_icds = set(str(row['LABELS']).split(';'))
-        for code in line_icds:
-            icd9_freq[code] = icd9_freq.get(code, 0) + 1
-        icd_count = len(line_icds)
-        icd_list = list(line_icds)
-        for i in range(0, icd_count - 1):
-            for j in range(i + 1, icd_count):
-                code1 = icd_list[i]
-                code2 = icd_list[j]
-                icd9_occur[(code1, code2)] = icd9_occur.get((code1, code2), 0) + 1
+def generate_relation_graph(node_file, relation_file):
+    icd_list = []
+    with open(node_file, 'r') as node_f:
+        for line in node_f:
+            line = line.strip()
+            array = line.split('\t')
+            if len(array) < 1:
+                continue
+            icd_code = array[0]
+            icd_list.append(icd_code)
+    # 创建一个空的有向图
+    G = nx.DiGraph()
+    G.add_nodes_from(icd_list)
+    # 读取relation文件构建relation
+    with open(relation_file, newline='', encoding='utf-8') as csvfile:
+        reader = csv.reader(csvfile)
+        next(reader)  # 跳过标题行
+        for row in reader:
+            head_entity = row[0]
+            tail_entity = row[2]
+            relation = row[4]
+            G.add_edge(head_entity, tail_entity, relation=relation)
+    return G
 
-    # Calculate the probability of each ICD9 code
-    total = len(df)
-    # Calculate the probability of each ICD9 code
-    icd9_freq_probs = {code: count / total for code, count in icd9_freq.items()}
-    # Calculate the joint probability of each pair of ICD9 codes occurring together
-    icd9_joint_probs = {label: count / total for label, count in icd9_occur.items()}
-
-    # Calculate the NPMI between each pair of ICD9 codes
-    f = open(out_weight_file, 'w')
-    npmi = {}
-    for (icd9_code1, icd9_code2), joint_prob in icd9_joint_probs.items():
-        p_icd9_code1 = icd9_freq_probs[icd9_code1]
-        p_icd9_code2 = icd9_freq_probs[icd9_code2]
-        denom = -log2(joint_prob)
-        if denom == 0:
-            npmi[(icd9_code1, icd9_code2)] = 1
-        else:
-            pmi = log2(joint_prob / (p_icd9_code1 * p_icd9_code2))
-            npmi[(icd9_code1, icd9_code2)] = pmi / denom
-        out_list = [str(icd9_code1), str(icd9_code2), str(npmi[(icd9_code1, icd9_code2)])]
-        out_line = '\t'.join(out_list) + '\n'
-        f.write(out_line)
-    f.close()
-
-    # Create graph
-    cooccur_G = nx.Graph()
-    # Add nodes and edges to the graph
-    for icd, count in icd9_freq.items():
-        cooccur_G.add_node(icd)
-    for icd9_code1, icd9_code2 in npmi.keys():
-        weight = npmi[(icd9_code1, icd9_code2)]
-        if weight >= threshold:
-            cooccur_G.add_edge(icd9_code1, icd9_code2, weight=weight)
-    return cooccur_G
+def save_triplets_to_csv(graph, output_file):
+    triplets = []
+    for edge in graph.edges(data=True):
+        head_entity = edge[0]
+        tail_entity = edge[1]
+        weight = edge[2]['weight']
+        triplets.append((head_entity, weight, tail_entity))
+    df = pd.DataFrame(triplets, columns=['Head_Entity', 'Weight', 'Tail_Entity'])
+    df.to_csv(output_file, index=False)
+    print("Triplets saved to", output_file)
 
 
-def build_complete_graph(tree_file, data_file, complete_graph_file, out_weight_file, threshold):
+def build_complete_graph(node_file, relation_file, complete_graph_file):
     parient_children, level_0, level_1, level_2, level_3, adj, node2id, hier_dicts, hier_dicts_init\
-        , max_children_num  = tree.build_tree(tree_file)
-    cooccur_G = create_graph(data_file, out_weight_file, threshold)
-    print('number of cooccur nodes:', cooccur_G.number_of_nodes())
-    print('number of cooccur edges:', cooccur_G.number_of_edges())
+        , max_children_num  = tree.build_tree(node_file)
+    relation_G = generate_relation_graph(node_file, relation_file)
+    print('number of relation nodes:', relation_G.number_of_nodes())
+    print('number of relation edges:', relation_G.number_of_edges())
 
-    hierarchical_G = tree.generate_graph(parient_children, node2id)
-    hierarchical_G_sub = hierarchical_G.subgraph(cooccur_G.nodes)
+    hierarchical_G = tree.generate_hierarchical_graph(parient_children, node2id)
+    hierarchical_G_sub = hierarchical_G.subgraph(relation_G.nodes)
     print('number of hierarchical sub nodes:', hierarchical_G_sub.number_of_nodes())
     print('number of hierarchical sub edges:', hierarchical_G_sub.number_of_edges())
 
-    complete_G = nx.compose(cooccur_G, hierarchical_G_sub)
+    complete_G = nx.compose(relation_G, hierarchical_G_sub)
     print('number of complete nodes:', complete_G.number_of_nodes())
     print('number of complete edges:', complete_G.number_of_edges())
     serialize_graph(complete_graph_file, complete_G)
-
-# def build_whole_graph(tree_file, data_file, complete_graph_file, out_weight_file, threshold):
-#     parient_children, level_0, level_1, level_2, level_3, adj, node2id, hier_dicts, hier_dicts_init, max_children_num = tree.build_tree(tree_file)
-#     labels_set = set(node2id.keys())  # Collecting labels from the hierarchical tree
-#
-#     # Generate the graph with only label nodes
-#     complete_G = tree.generate_graph(parient_children, node2id, labels_set)
-#
-#     # Serialize the complete graph
-#     serialize_graph(complete_graph_file, complete_G)
 
 # Visualize the graph using Graphviz
 def draw_graph(G, graph_name):
@@ -108,25 +78,14 @@ def reload_graph(file):
         G = pickle.load(f)
     return G
 
+def reload_directed_graph(file):
+    # 从文件中加载有向图
+    G = nx.read_edgelist(file, create_using=nx.DiGraph(), nodetype=str)
+    return G
+
 
 if __name__ == "__main__":
-    tree_file = "../knowledge-data/50_attribute.txt"
-    data_file = "../train-data/train_50_entities.csv"
-    graph_file = "../knowledge-data/50_graph.pkl"
-    weight_file = "../knowledge-data/50_npmi.txt"
-    graph_name = "50_graph"
-    build_complete_graph(tree_file, data_file, graph_file, weight_file, 0)
-
-    # G = reload_graph(graph_file)
-    # adj_matrix = nx.adjacency_matrix(G, weight='weight').toarray()
-    # adj_matrix[np.isnan(adj_matrix)] = 0
-    # in_matrix = th.from_numpy(adj_matrix)
-    # print(in_matrix.size(0))
-    # # draw_graph(G, graph_name)
-    #
-    # # data_file = "/Users/guyixun/Documents/PHD/healthcare-code/ICD-coding-baseline/mimicdata/mimic3/notes_labeled.csv"
-    # # graph_file = "/Users/guyixun/Documents/PHD/healthcare-code/ICD-coding-baseline/mimicdata/icd_graph/all_graph.pkl"
-    # # weight_file = "/Users/guyixun/Documents/PHD/healthcare-code/ICD-coding-baseline/mimicdata/icd_graph/all_npmi.txt"
-    # # graph_name = "all_icd_graph"
-    # # create_graph(data_file, graph_file, weight_file, 0)
-    # # G = reload_graph(graph_file)
+    node_file = "../knowledge-data/50_attribute.txt"
+    relation_file = "../knowledge-data/50_relation_filtered.csv"
+    output_graph_file = "../knowledge-data/50_graph.pkl"
+    build_complete_graph(node_file, relation_file, output_graph_file)

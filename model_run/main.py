@@ -38,6 +38,7 @@ def run(args, device):
             mid_size=args['mid_size'],
             num_classes=args['num_classes'],
             label_graph=args['label_graph'],
+            theta=args['theta'],
             time_step=args['time_step']
         )
 

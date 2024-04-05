@@ -8808,7 +8808,7 @@ E950.9	suicide selfinflicted poisoning solid liquid substances nausea vomiting a
 81.84	total elbow replacement surgery prosthetic metal components plastic spacer cementscrews physical therapy rheumatoid arthritis osteoarthritis avascular necrosis pain range of motion antiinflammatory meds rest corticosteroid injections
 68.12	examine diagnose treat uterus fibroid tumors polyps abnormal bleeding endometriosis fertility problems gynecological surgery pap test ultrasound difficulty getting pregnant polyps fibroids abnormalities
 82.36	myectomy dupuytrens contracture trigger finger connective tissue curl palm movement restriction severe
-80.84	
+80.84	Other local excision or destruction of lesion of joint of hand and finger
 81.35	spinal fusion screws rods bone grafts vertebrae unstable fractures thoracic region pain relief degenerative disc spondylolisthesis spinal stenosis traumatic fractures scoliosis reconstructive surgery
 94.68	abstinence dependence intolerance comorbidity unstable living support network motivation sobriety
 88.48	arteriography radiology imaging contrast dye peripheral artery disease deep vein thrombosis aortoiliac occlusive disease arterial aneurysms embolic obstructions trauma pain loss of feeling discoloration coldness numbness weakness cramping nonhealing sores weak pulses ankle swelling
@@ -8819,9 +8819,9 @@ E950.9	suicide selfinflicted poisoning solid liquid substances nausea vomiting a
 78.68	device extraction surgery general anesthesia infections fractures cancer cysts implants joint replacements pain inflammation mobility discomfort chronic pain osteoarthritis fractures nerve damage
 93.55	dental wiring braces malocclusion cleft lip palate overcrowding overbite underbite jaw flexible costly
 66.61	fallopian tube lesion excisiondestruction fertility scarring inflammation pid endometriosis ectopic pregnancy ovarian cysts hydrosalpinx abdominal pain abnormal bleeding precancerous changes
-86.71	
+86.71	Cutting and preparation of pedicle grafts or flaps
 86.75	graft revision pedicleflap graft surgery infection margins viability burns chronic wounds trauma scar revision reconstruction ear craniofacial handfoot breast
-97.51	
+97.51	Removal of gastrostomy tube
 97.71	female contraception removal iucd iud prepregnancy postpregnancy pregnancy cramping bleeding
 27.42	lip lesion surgery excision removal healthy tissue basal cell carcinoma squamous cell carcinoma actinic keratosis infection trauma genetic environmental
 27.69	cleft lip cleft palate reconstructive trauma tumors plastic repair function appearance speech eating infant child adult breathing asymmetry

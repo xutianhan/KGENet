@@ -1,7 +1,4 @@
 # -*- coding:utf-8 -*-
-"""
-"""
-import csv
 import numpy as np
 import networkx as nx
 
@@ -16,7 +13,7 @@ def findrange(icd,level,parient_child):
                     return item
             else:
                 # 不是以E或者V开头的
-                print(icd,tokens[0],tokens[1])
+                # print(icd,tokens[0],tokens[1])
                 if int(icd) in  range(int(tokens[0]),int(tokens[1])+1):
                     parient_child.append((item,icd))
                     return item
@@ -160,7 +157,6 @@ def build_tree(filepath):
         if icd not in hier_icds:
             hier_icds[icd]=hier_icd
 
-    print('循环结束')
     # 将层级的labels转换为id
     node2id={}
     hier_labels_init=hier_icds.copy()
@@ -195,10 +191,9 @@ def build_tree(filepath):
     
     print('循环开始：沿着树路径，创建adj')
     for icd, hier_icd in hier_icds.items():
-        print('hier_icd:', hier_icd)
+        # print('hier_icd:', hier_icd)
         icdId=node2id.get(icd)
         hier_icdIds=[node2id.get(item) for item in hier_icd]
-        #hier_dicts_init[icdId]=hier_icdIds.copy()
 
         hier_icdIds.insert(0,node2id.get('ROOT'))
         hier_dicts[icdId]=hier_icdIds
@@ -209,50 +204,16 @@ def build_tree(filepath):
         # 沿着树路径 创建adj
         for i in range(len(hier_icdIds)-1):
             for j in range(i+1,i+2):
-                print('hier_icdIds[i]:',hier_icdIds[i])
-                print('hier_icdIds[j]:',hier_icdIds[j])
+                # print('hier_icdIds[i]:',hier_icdIds[i])
+                # print('hier_icdIds[j]:',hier_icdIds[j])
                 adj[hier_icdIds[i]][hier_icdIds[j]]=1
                 parient_child.append([hier_icdIds[i],hier_icdIds[j]])
 
-    print('循环结束！')
     # 统计最大的孩子个数
     children_num = [len(np.argwhere(row)) for row in adj]
     max_children_num = max(len(level0), max(children_num))
     min_children_num = min(len(level0), min(children_num))
-    # print('max_childeren_num:', max_children_num)
-    # return parient_child,list(level0),list(level1),list(level2),list(level3),adj,node2id,hier_dicts,hier_labels_init_new ,max_children_num
     return parient_child, list(level0), list(level1), list(level2), list(level3), adj, node2id, hier_dicts, hier_labels_init_new, max_children_num
-
-def build_brothers(filepath,node2id,hier_labels,parent_children_adj):
-    brother_adj = np.zeros((len(node2id), len(node2id)))
-    with open(filepath,'r') as f:
-        reader=csv.reader(f)
-        next(reader)
-        data=[row[-1] for row in reader]
-        for row in data:
-            icds=row.split(';')
-            icds=[node2id.get(icd) for icd in icds if len(icd)>0]
-            labels=[hier_labels.get(icd) for icd in icds]
-            #为每个样本的每一层建立brother关系
-            for level in range(1,5):
-                tmp=[row[level] for row in labels]
-                for i in range(len(tmp)-1):
-                    for j in range(i+1,len(tmp)):
-                        # 判断tmp[i]与tmp[j]是否是兄弟关系，即二者是否拥有同一个父亲
-                        brotherFlag=isbrother(tmp[i],tmp[j],parent_children_adj)
-                        if brotherFlag:
-                            brother_adj[tmp[i]][tmp[j]] += 1
-                            brother_adj[tmp[j]][tmp[i]] += 1
-    return brother_adj
-
-def isbrother(label_a,label_b,parent_children_adj):
-    parent_a=np.argwhere(parent_children_adj[:,label_a]>0)
-    parent_b=np.argwhere(parent_children_adj[:,label_b]>0)
-    if parent_a.any()==parent_b.any():
-        brotherFlag=True
-    else:
-        brotherFlag=False
-    return brotherFlag
 
 
 # 根据值查询键的函数
@@ -265,10 +226,9 @@ def get_key_by_value(dictionary, target_value):
     # 如果未找到匹配的值，则返回 None 或者其他指定的默认值
     return None
 
-def generate_graph(parent_child,node2id):
-    # 将parient-child中的每条边转换成id
+def generate_hierarchical_graph(parent_child, node2id):
     # 根据关系创建图
-    G = nx.Graph()
+    G = nx.DiGraph()
     G.add_nodes_from(node2id.keys())
     parent_child_new = []
     for p_c in parent_child:
@@ -279,23 +239,5 @@ def generate_graph(parent_child,node2id):
         if (parent_node is not None) and (child_node is not None):
             parent_child_new.append([parent_node, child_node])
     G.add_edges_from(parent_child_new)
-    print('number of hierarchical nodes:', G.number_of_nodes())
-    print('number of hierarchical edges:', G.number_of_edges())
     return G
 
-# def generate_graph(parient_child, label_node, hier_dicts):
-#     # Create an empty graph
-#     G = nx.Graph()
-#
-#     # Add label nodes to the graph
-#     for label in label_node:
-#         G.add_node(label)
-#
-#     # Add edges to the graph
-#     for parent, child in parient_child:
-#         # Only add edges between label nodes
-#         if parent in hier_dicts.values() and child in hier_dicts.values():
-#             G.add_edge(parent, child)
-#     print('number of hierarchical nodes:', G.number_of_nodes())
-#     print('number of hierarchical edges:', G.number_of_edges())
-#     return G

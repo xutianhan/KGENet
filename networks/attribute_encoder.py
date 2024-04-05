@@ -54,10 +54,10 @@ class AttributeEncoder():
         return label_embeddings
 
 
-if __name__ == "__main__":
-    print('start!')
-    model_name = "emilyalsentzer/Bio_ClinicalBERT"
-    attr_file = '/Users/guyixun/Documents/PHD/healthcare-code/ICD-coding-baseline/mimicdata/icd_knowledge/core-attribute/50_attribute_clean.txt'
-    encoder = AttributeEncoder(model_name)
-    embeddings = encoder.init_all_label_embeddings(attr_file)
-    print('end!')
+# if __name__ == "__main__":
+#     print('start!')
+#     model_name = "emilyalsentzer/Bio_ClinicalBERT"
+#     attr_file = '../knowledge-data/50_attribute.txt'
+#     encoder = AttributeEncoder(model_name)
+#     embeddings = encoder.init_all_label_embeddings(attr_file)
+#     print('end!')

@@ -31,12 +31,13 @@ config.update_config('max_len', 4096)
 # 模型设置
 config.update_config('label_emb_model_name', 'emilyalsentzer/Bio_ClinicalBERT')
 config.update_config('ehr_emb_model_name', 'yikuan8/Clinical-Longformer')
-config.update_config('label_attr_file', 'label_attributes.txt')
+config.update_config('label_attr_file', '50_attribute.txt')
 config.update_config('embedding_size', 768)
 config.update_config('mid_size', 256)
 config.update_config('num_classes', 50)
-config.update_config('label_graph', 'label_graph.txt')
-config.update_config('time_step', 3)
+config.update_config('label_graph', '50_graph.pkl')
+config.update_config('theta', 0.2)
+config.update_config('time_step', 2)
 
 # 训练设置
 config.update_config('learning_rate', 0.001)
