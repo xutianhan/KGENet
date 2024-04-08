@@ -1,4 +1,3 @@
-# -*- coding:utf-8 -*-
 import numpy as np
 import networkx as nx
 
@@ -58,7 +57,7 @@ def build_tree(filepath):
               'V85', 'V86', 'V87', 'V88', 'V89','V90','V91']
 
     allICDS=[] # 保存所有的icds
-    with open(filepath,'r') as f:
+    with open(filepath,'r',encoding='utf-8') as f:
         for row in f:
             array = row.split('\t')
             icd = array[0]

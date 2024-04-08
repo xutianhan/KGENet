@@ -1,13 +1,13 @@
 import networkx as nx
 from graphviz import Digraph
 import pickle
-import hierarchical_tree as tree
+import knowledge_graph.hierarchical_tree as tree
 import pandas as pd
 import csv
 
 def generate_relation_graph(node_file, relation_file):
     icd_list = []
-    with open(node_file, 'r') as node_f:
+    with open(node_file, 'r', encoding='utf-8') as node_f:
         for line in node_f:
             line = line.strip()
             array = line.split('\t')
@@ -73,14 +73,11 @@ def serialize_graph(file, G):
         pickle.dump(G, f)
     return True
 
+
 def reload_graph(file):
     with open(file, "rb") as f:
         G = pickle.load(f)
-    return G
-
-def reload_directed_graph(file):
-    # 从文件中加载有向图
-    G = nx.read_edgelist(file, create_using=nx.DiGraph(), nodetype=str)
+        assert isinstance(G, nx.DiGraph), "Reloaded graph is not a DiGraph"
     return G
 
 
@@ -89,3 +86,4 @@ if __name__ == "__main__":
     relation_file = "../knowledge-data/50_relation_filtered.csv"
     output_graph_file = "../knowledge-data/50_graph.pkl"
     build_complete_graph(node_file, relation_file, output_graph_file)
+    G = reload_graph(output_graph_file)
