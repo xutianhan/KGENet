@@ -14,8 +14,8 @@ import configure
 
 def get_hyper_params_combinations(args):
     params = OrderedDict(
-        learning_rate=args['learning_rate'],
-        num_epoch=args['num_epoch']
+        learning_rate=[args['learning_rate']],
+        num_epoch=[args['num_epoch']]
     )
 
     HyperParams = namedtuple('HyperParams', params.keys())
@@ -24,9 +24,9 @@ def get_hyper_params_combinations(args):
         hyper_params_list.append(HyperParams(*v))
     return hyper_params_list
 
+
 def run(args, device):
     train_set, dev_set, test_set = prepare_datasets(args['data_setting'], args['batch_size'])
-    logging.info(f'Training labels are: {train_set["labels"]}\n')
 
     for hyper_params in get_hyper_params_combinations(args):
         # 创建模型实例

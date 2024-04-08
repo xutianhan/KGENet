@@ -5,10 +5,8 @@ import os
 from sklearn.preprocessing import MultiLabelBinarizer
 from model_run.icd_dataset import ICD_Dataset
 
-
 DATA_DIR = '../train-data'
 CLASS_ORDER_PATH = "../knowledge-data"
-
 
 def load_dataset(data_setting, batch_size, splited_data):
     data = pd.read_csv(f'{DATA_DIR}/{splited_data}_{data_setting}_entities.csv', dtype={'LENGTH': int})
@@ -17,22 +15,23 @@ def load_dataset(data_setting, batch_size, splited_data):
     avg_code_counts = sum(code_counts) / len(code_counts)
     logging.info(f'In {splited_data} set, average code counts per ehr: {avg_code_counts}')
 
-    # 第一次实例化class保存顺序，以后使用均按照这个顺序
     class_order_file = f'{CLASS_ORDER_PATH}/{data_setting}_class_order.npy'
     if not os.path.exists(class_order_file):
         mlb = MultiLabelBinarizer()
         mlb.fit(data['LABELS'])
-        np.save(class_order_file, mlb.classes_)
+        if mlb.classes is not None and len(mlb.classes) > 0 and mlb.classes[-1] == 'nan':
+            mlb.classes = mlb.classes[:-1]
+        np.save(class_order_file, mlb.classes)
     else:
         mlb = MultiLabelBinarizer(classes=np.load(class_order_file, allow_pickle=True))
+        mlb.fit(data['LABELS'])
 
-    if mlb.classes_[-1] == 'nan':
-        mlb.classes_ = mlb.classes_[:-1]
+    print(f'Final number of labels/codes: {len(mlb.classes)}')
 
-    print(f'Final number of labels/codes: {len(mlb.classes_)}')
-
-    for label in mlb.classes_:
-        data[label] = mlb.transform(data['LABELS'])[:, mlb.classes_ == label]
+    # Transform the LABELS column once after fitting
+    data_transformed = mlb.transform(data['LABELS'])
+    for i, label in enumerate(mlb.classes):
+        data[label] = data_transformed[:, i]
 
     data.drop(['LABELS', 'LENGTH'], axis=1, inplace=True)
 
@@ -43,11 +42,10 @@ def load_dataset(data_setting, batch_size, splited_data):
     return {
         'hadm_ids': data['HADM_ID'].values[:item_count],
         'texts': data['TEXT'].values[:item_count],
-        'targets': data[mlb.classes_].values[:item_count],
-        'labels': mlb.classes_,
-        'label_freq': data[mlb.classes_].sum(axis=0)
+        'targets': data[mlb.classes].values[:item_count],
+        'labels': mlb.classes,
+        'label_freq': data[mlb.classes].sum(axis=0)
     }
-
 
 def verify_datasets(data_setting, batch_size):
     train_raw = load_dataset(data_setting, batch_size, splited_data='train')
@@ -58,7 +56,6 @@ def verify_datasets(data_setting, batch_size):
         raise ValueError("Train dev test labels don't match!")
 
     return train_raw, dev_raw, test_raw
-
 
 def prepare_datasets(data_setting, batch_size):
     train_data, dev_data, test_data = verify_datasets(data_setting, batch_size)

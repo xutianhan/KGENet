@@ -37,8 +37,7 @@ class KGENet(nn.Module):
         # reload label graph
         self.graph_file = label_graph
 
-        # G = lg.reload_graph(self.graph_file)
-        G = lg.reload_directed_graph(self.graph_file)
+        G = lg.reload_graph(self.graph_file)
         adj_matrix = nx.adjacency_matrix(G, weight=theta).toarray()
 
         # Replace missing values with 0
@@ -46,12 +45,12 @@ class KGENet(nn.Module):
         # convert ndarray to tensor
         self.in_matrix, self.out_matrix = self.load_matrix(adj_matrix)
 
-        self.graph_net = GGNN(input_dim=2 * self.ehr_hidden_size,
+        self.graph_net = GGNN(input_dim=2 * self.embedding_size,
                               time_step=self.time_step,
                               in_matrix=self.in_matrix,
                               out_matrix=self.out_matrix)
         # Instantiate FCN for classifier
-        self.fcs = nn.ModuleList([nn.Linear(4 * self.ehr_hidden_size, 1) for _ in range(self.num_classes)])
+        self.fcs = nn.ModuleList([nn.Linear(4 * self.embedding_size, 1) for _ in range(self.num_classes)])
 
     def forward(self, x):
         H = self.ehr_encoder.batch_ehr_embeddings(x) #(batch_size, sequence_length, embedding_size)

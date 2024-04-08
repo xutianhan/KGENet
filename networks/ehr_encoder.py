@@ -27,25 +27,46 @@ class EHREncoder():
                 ehr_list.append(data)
         return ehr_list
 
+    # def compute_ehr_embedding(self, ehr_text):
+    #     # 对文本进行编码
+    #     inputs = self.tokenizer(ehr_text, return_tensors="pt", padding="max_length", truncation=True, max_length=4096)
+    #     # Get the input embeddings
+    #     input_embeddings = self.model.get_input_embeddings()
+    #
+    #     token_embeddings = input_embeddings(inputs['input_ids'])
+    #     # print("Clinical Longformer embeddings shape:", token_embeddings.shape)
+    #     return token_embeddings
+    #
+    # def batch_ehr_embeddings(self, batch_ehr_text):
+    #     embedding_list = []
+    #     for ehr_text in batch_ehr_text:
+    #         ehr_embedding = self.compute_ehr_embedding(ehr_text)
+    #         embedding_list.append(ehr_embedding)
+    #     W = th.cat(embedding_list, dim=0)
+    #     batch_ehr_embeddings = nn.Embedding.from_pretrained(W, freeze=True)
+    #     return batch_ehr_embeddings
+    def compute_ehr_embedding(self, input_ids):
+        # 使用模型计算 embeddings
+        outputs = self.model(input_ids)
+        # outputs 是一个元组，第一个元素是 sequence output
+        sequence_output = outputs[0]
+        return sequence_output
 
-    def compute_ehr_embedding(self, ehr_text):
-        # 对文本进行编码
-        inputs = self.tokenizer(ehr_text, return_tensors="pt", padding="max_length", truncation=True, max_length=4096)
-        # Get the input embeddings
-        input_embeddings = self.model.get_input_embeddings()
-
-        token_embeddings = input_embeddings(inputs['input_ids'])
-        # print("Clinical Longformer embeddings shape:", token_embeddings.shape)
-        return token_embeddings
-
-    def batch_ehr_embeddings(self, batch_ehr_text):
+    def batch_ehr_embeddings(self, batch_input_ids):
         embedding_list = []
-        for ehr_text in batch_ehr_text:
-            ehr_embedding = self.compute_ehr_embedding(ehr_text)
+        for input_ids in batch_input_ids:
+            ehr_embedding = self.compute_ehr_embedding(input_ids)
             embedding_list.append(ehr_embedding)
-        W = th.cat(embedding_list, dim=0)
-        batch_ehr_embeddings = nn.Embedding.from_pretrained(W, freeze=True)
+        # 使用 stack 而不是 cat，以创建一个新的维度
+        batch_ehr_embeddings = th.stack(embedding_list, dim=0)
         return batch_ehr_embeddings
+
+    def text_to_sequence(self, text):
+        # 使用 tokenizer 对文本进行编码
+        encoded_text = self.tokenizer(text, return_tensors="pt", padding="max_length", truncation=True, max_length=4096)
+        # 提取编码后的整数序列
+        sequence = encoded_text.input_ids
+        return sequence
 
 
 # if __name__ == "__main__":

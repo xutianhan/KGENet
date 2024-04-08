@@ -19,9 +19,8 @@ def train(model, train_set, dev_set, test_set, hyper_params, batch_size, device)
         manager.begin_epoch(epoch + 1)
         model.train()
         for batch in train_loader:
-            texts, labels = batch
-            texts = texts.to(device)
-            labels = labels.to(device)
+            batch_data = batch
+            texts, labels = batch_data['text'], batch_data['targets']
 
             outputs, label_attn_weight = model(texts)
 
