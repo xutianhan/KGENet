@@ -3,7 +3,6 @@ sys.path.append('/')
 from transformers import LongformerModel
 from transformers import LongformerTokenizerFast
 import torch as th
-import torch.nn as nn
 
 class EHREncoder():
     def __init__(self, model_name):
@@ -27,55 +26,30 @@ class EHREncoder():
                 ehr_list.append(data)
         return ehr_list
 
-    # def compute_ehr_embedding(self, ehr_text):
-    #     # 对文本进行编码
-    #     inputs = self.tokenizer(ehr_text, return_tensors="pt", padding="max_length", truncation=True, max_length=4096)
-    #     # Get the input embeddings
-    #     input_embeddings = self.model.get_input_embeddings()
-    #
-    #     token_embeddings = input_embeddings(inputs['input_ids'])
-    #     # print("Clinical Longformer embeddings shape:", token_embeddings.shape)
-    #     return token_embeddings
-    #
-    # def batch_ehr_embeddings(self, batch_ehr_text):
-    #     embedding_list = []
-    #     for ehr_text in batch_ehr_text:
-    #         ehr_embedding = self.compute_ehr_embedding(ehr_text)
-    #         embedding_list.append(ehr_embedding)
-    #     W = th.cat(embedding_list, dim=0)
-    #     batch_ehr_embeddings = nn.Embedding.from_pretrained(W, freeze=True)
-    #     return batch_ehr_embeddings
+
     def compute_ehr_embedding(self, input_ids):
+        # 将 input_ids 转换为 torch.Tensor 类型
+        input_ids_tensor = th.tensor(input_ids)
         # 使用模型计算 embeddings
-        outputs = self.model(input_ids)
+        outputs = self.model(input_ids_tensor)
         # outputs 是一个元组，第一个元素是 sequence output
         sequence_output = outputs[0]
         return sequence_output
 
-    def batch_ehr_embeddings(self, batch_input_ids):
-        embedding_list = []
-        for input_ids in batch_input_ids:
-            ehr_embedding = self.compute_ehr_embedding(input_ids)
-            embedding_list.append(ehr_embedding)
-        # 使用 stack 而不是 cat，以创建一个新的维度
-        batch_ehr_embeddings = th.stack(embedding_list, dim=0)
-        return batch_ehr_embeddings
+    # def batch_ehr_embeddings(self, batch_input_ids):
+    #     embedding_list = []
+    #     for input_ids in batch_input_ids:
+    #         ehr_embedding = self.compute_ehr_embedding(input_ids)
+    #         embedding_list.append(ehr_embedding)
+    #     # 使用 stack 而不是 cat，以创建一个新的维度
+    #     batch_ehr_embeddings = th.stack(embedding_list, dim=0)
+    #     return batch_ehr_embeddings
 
     def text_to_sequence(self, text):
         # 使用 tokenizer 对文本进行编码
-        encoded_text = self.tokenizer(text, return_tensors="pt", padding="max_length", truncation=True, max_length=4096)
+        encoded_text = self.tokenizer(text, return_tensors="pt", padding="max_length", truncation=True,
+                                      max_length=4096)
         # 提取编码后的整数序列
-        sequence = encoded_text.input_ids
+        sequence = encoded_text.input_ids.squeeze(0)  # 去除多余的维度
         return sequence
-
-
-# if __name__ == "__main__":
-#     print('start!')
-#     model_name = "yikuan8/Clinical-Longformer"
-#     ehr_text = "costal margin tenofovir disoproxil fumarate ill contacts bilirubin lactate urinalysis toxic repeated sputum complains hospital stay exposure venous distention subcutaneously levoxyl access issues fibrosis states medquist36 number primaquine clindamycin clindamycin epivir movements transferred hospital ward tenofovir noninvasive positive pressure ventilation bronchoscopy sweats physical examination electrocardiogram surveillance afebrile stitle visit right upper quadrant ultrasound primary care medications multivitamin blood pressure staphylococcus aureus strength extremities status discharged home instructions weeks codeine guaifenesin empiric pneumocystis negative levoxyl exertion mouth issue system problems air percussion regimen acyclovir fluconazole carinii pneumonia respiratory rate diagnosed antibiotics sleep multivitamin penicillin pulmonary issues emergency room nitrogen creatinine lamivudine alcohol illicit drugs increased positive bowel sounds improved mcg every levoxyl mcg lower extremity edema intravenous nasal cannula diabetes twice subcutaneously regular insulin sliding scale gram positive cocci pairs twice per lantus respiratory status liters oxygen saturation issues child location elevated anicteric mucous membranes viral pneumonia mg nausea family history family history drug use thorax intact neutrophils tapered time lantus aspartate aminotransferase allergies vancomycin laboratory values blood cultures clearance secondary respiratory distress room air blood sugars discharged lantus tricuspid valve obscured dry extraocular medication regimen steroid drugs medical history sentences cachectic prednisone saline clindamycin one female liver biopsy cranial nerves noncontributory chemistries intravenously sinus tachycardia unchanged chest x ray valvular abnormalities class cirrhosis right atrium chest x ray total course subcutaneously sliding scale primaquine vancomycin therapy cardiovascular examination tablets cytosis saturate metabolic disease sinusoidal symptoms clinic inserted sulfa dapsone heart rate three mg neurologic examination tachycardia murmurs xii intact low viral load pertinent abdomen husband cd4 hepatomegaly alkaline phosphatase total bilirubin fevers fluconazole taper house dyspnea cc cc aztreonam esophagogastroduodenoscopy insulin general ill toxic week course tuberculosis cirrhosis cholangitis pneumonia decreased codeine guaifenesin syrup cholelithiasis gallbladder wall zantac rash dapsone chest x ray tapered blood sugars blood urea room noninvasive positive pressure ventilation normal saline time blood cultures didanosine fatigue bilateral dapsone klonopin bile duct followup alanine aminotransferase alkalosis secondary highly active hypothyroidism temperature increasing mild diffuse tenderness sliding scale emergency department presentation low pao2 hospital ward arterial blood gas acyclovir pneumocystis two lung hospital diflucan q 6h leukocyte esterase dictated interstitial opacities oxygen saturations social history lives intensive care unit improve tolerated medications tablet lantus subcutaneously sliding scale allergies intravenous antibiotics illness air liters secondary lantus subcutaneously viread right upper quadrant ultrasound transfusions grew methicillin diabetes mellitus sulfa drugs shortness breath cough human immunodeficiency virus bacteremia white blood cell"
-#     encoder = EHREncoder(model_name)
-#     embeddings = encoder.compute_ehr_embedding(ehr_text)
-#     print('end!')
-
-
 

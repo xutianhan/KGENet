@@ -53,7 +53,7 @@ class KGENet(nn.Module):
         self.fcs = nn.ModuleList([nn.Linear(4 * self.embedding_size, 1) for _ in range(self.num_classes)])
 
     def forward(self, x):
-        H = self.ehr_encoder.batch_ehr_embeddings(x) #(batch_size, sequence_length, embedding_size)
+        H = self.ehr_encoder.compute_ehr_embedding(x) #(batch_size, sequence_length, embedding_size)
         # label attention
         T = th.tanh(self.W1(H.transpose(1, 2))) # (batch_size, mid_size, sequence_length)
         label_attention_scores = F.softmax(self.W2(T), dim=1) # (batch_size, 1, sequence_length)

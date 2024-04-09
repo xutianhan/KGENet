@@ -19,20 +19,16 @@ class ICD_Dataset(Dataset):
 
 
     def __getitem__(self, index):
+        text = self.texts[index]
+        label = self.labels[index]
 
-        start_index = index * self.batch_size
-        end_index = (index + 1) * self.batch_size
-
-        texts_batch = self.texts[start_index:end_index]
-        labels_batch = self.labels[start_index:end_index]
-
-        texts_seq_batch = [self.ehr_encoder.text_to_sequence(text) for text in texts_batch]
+        text_seq = self.ehr_encoder.text_to_sequence(text)
 
         # Transform labels to multi-hot vectors
-        labels_multi_hot = self.mlb.transform(labels_batch)
+        # labels_multi_hot = self.mlb.transform(label)[0]
 
-        return {'text': texts_seq_batch,
-                'targets': th.tensor(labels_multi_hot, dtype=th.float)}
+        return {'text': text_seq,
+                'targets': th.tensor(label, dtype=th.float)}
 
     def load_class_order(self, data_setting, class_order_path):
         # CLASS_ORDER_PATH = "/root/autodl-tmp/KGENet/icd_knowledge"
