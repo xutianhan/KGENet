@@ -55,23 +55,22 @@ class KGENet(nn.Module):
     def forward(self, x):
         H = self.ehr_encoder.compute_ehr_embedding(x) #(batch_size, sequence_length, embedding_size)
         # label attention
-        T = th.tanh(self.W1(H.transpose(1, 2))) # (batch_size, mid_size, sequence_length)
-        label_attention_scores = F.softmax(self.W2(T), dim=1) # (batch_size, 1, sequence_length)
-        label_attention_output = th.matmul(H, label_attention_scores).squeeze(dim=1) # (batch_size, 1, embedding_size)
-        # batch_size, embedding_size = label_attention_output.size()
-
+        T = th.tanh(self.W1(H)) # (batch_size, sequence_length, mid_size)
+        label_attention_scores = F.softmax(self.W2(T), dim=1) # (batch_size, sequence_length, 1)
+        label_attention_trans = label_attention_scores.transpose(1, 2) #(batch_size, 1, sequence_length)
+        label_attention_output = th.matmul(label_attention_trans, H) # (batch_size, 1, embedding_size)
 
         # cross-attention
-        query = self.label_embeddings.unsqueeze(0).expand(x.size(0), -1, -1) # (batch_size, num_labels, embedding_size)
-        key = x.transpose(-2,-1) # (batch_size, embedding_size, sequence_length)
-        value = x # (batch_size, sequence_length, embedding_size)
+        query = self.label_embeddings.weight.repeat(x.size(0), 1, 1) # (batch_size, num_class, embedding_size)
+        key = H.transpose(1, 2) # (batch_size, embedding_size, sequence_length)
+        value = H # (batch_size, sequence_length, embedding_size)
         cross_attention_scores = th.matmul(query, key) # (batch_size, num_class, sequence_length)
         cross_attention_weights = F.softmax(cross_attention_scores, dim=-1) # (batch_size, num_class, sequence_length)
         cross_attention_output = th.matmul(cross_attention_weights, value) # (batch_size, num_class, embedding_size)
         num_class = cross_attention_output.size(1)
 
         # 将 label_attention_output 复制 num_class 次
-        label_attention_output_expanded = label_attention_output.unsqueeze(1).expand(-1, num_class, -1)  # (batch_size, num_class, embedding_size)
+        label_attention_output_expanded = label_attention_output.expand(-1, num_class, -1)  # (batch_size, num_class, embedding_size)
 
         # get attention features
         attn_feature_all = th.cat([label_attention_output_expanded, cross_attention_output], dim=-1) # (batch_size, num_class, 2 * embedding_size)
@@ -94,6 +93,3 @@ class KGENet(nn.Module):
         in_matrix = Variable(th.from_numpy(in_matrix), requires_grad=False)
         out_matrix = Variable(th.from_numpy(out_matrix), requires_grad=False)
         return in_matrix, out_matrix
-
-
-

@@ -29,9 +29,9 @@ class EHREncoder():
 
     def compute_ehr_embedding(self, input_ids):
         # 将 input_ids 转换为 torch.Tensor 类型
-        input_ids_tensor = th.tensor(input_ids)
+        # input_ids_tensor = th.tensor(input_ids)
         # 使用模型计算 embeddings
-        outputs = self.model(input_ids_tensor)
+        outputs = self.model(input_ids)
         # outputs 是一个元组，第一个元素是 sequence output
         sequence_output = outputs[0]
         return sequence_output

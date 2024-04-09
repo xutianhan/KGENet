@@ -52,12 +52,3 @@ class AttributeEncoder():
         label_embeddings = nn.Embedding.from_pretrained(W, freeze=True)
         print(label_embeddings.weight.shape)
         return label_embeddings
-
-
-# if __name__ == "__main__":
-#     print('start!')
-#     model_name = "emilyalsentzer/Bio_ClinicalBERT"
-#     attr_file = '../knowledge-data/50_attribute.txt'
-#     encoder = AttributeEncoder(model_name)
-#     embeddings = encoder.init_all_label_embeddings(attr_file)
-#     print('end!')

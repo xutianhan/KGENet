@@ -24,14 +24,10 @@ class ICD_Dataset(Dataset):
 
         text_seq = self.ehr_encoder.text_to_sequence(text)
 
-        # Transform labels to multi-hot vectors
-        # labels_multi_hot = self.mlb.transform(label)[0]
-
         return {'text': text_seq,
                 'targets': th.tensor(label, dtype=th.float)}
 
     def load_class_order(self, data_setting, class_order_path):
-        # CLASS_ORDER_PATH = "/root/autodl-tmp/KGENet/icd_knowledge"
         class_order_file = f'{class_order_path}/{data_setting}_class_order.npy'
         if not os.path.exists(class_order_file):
             raise FileNotFoundError(f"Class order file '{class_order_file}' not found.")
